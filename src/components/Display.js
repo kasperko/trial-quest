@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
 import styled from 'styled-components';
-import { ethers } from 'ethers';
 
 const MainContainer = styled.div`
   position: absolute;
@@ -53,7 +51,7 @@ const TokenButton = styled.div`
 
   position: absolute;
   width: 97px;
-  height: 36px;
+  height: 25px;
   left: 507px;
   top: 356px;
 
@@ -114,7 +112,7 @@ const MaxBox = styled.div`
   position: absolute;
   width: 47px;
   height: 28px;
-  left: 623px;
+  left: 650px;
   top: 360px;
 
   background: rgba(245, 103, 54, 0.3);
@@ -125,8 +123,8 @@ const MaxText = styled.p`
   position: absolute;
   width: 31px;
   height: 13px;
-  left: 631px;
-  top: 366px;
+  left: 657px;
+  top: 355px;
 
   font-family: Public Sans;
   font-style: normal;
@@ -142,8 +140,8 @@ const BalanceAmount = styled.p`
   position: absolute;
   width: 171px;
   height: 26px;
-  left: 507px;
-  top: 401px;
+  left: 450px;
+  top: 390px;
 
   font-family: IBM Plex Mono;
   font-style: normal;
@@ -156,7 +154,7 @@ const BalanceAmount = styled.p`
   color: rgba(255, 255, 255, 0.6);
 `;
 
-const DepositAndWithdrawAmount = styled.p`
+const DepositAndWithdrawAmount = styled.input`
   position: absolute;
   width: 37px;
   height: 26px;
@@ -172,6 +170,8 @@ const DepositAndWithdrawAmount = styled.p`
   text-align: center;
 
   color: rgba(255, 255, 255, 0.6);
+  background-color: Transparent;
+  border: none;
 `;
 
 const BottomSubContainer = styled.div`
@@ -307,19 +307,24 @@ const UnconnectedStatsNumbers = () => {
   );
 }
 
-const ConnectedStatsNumbers = () => {
-  return (
-    <>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-    </>
-  );
-}
+const Logo = styled.h1`
+  position: static;
+  text-align: left;
+`;
 
 const Display = ({view, connected, balance}) => {
+  const ConnectedStatsNumbers = () => {
+    return (
+      <>
+        <li>-</li>
+        <li>{}k UNI / ${}M</li>
+        <li>{}k UNI / ${}M</li>
+        <li>-</li>
+        <li>{} days</li>
+      </>
+    );
+  }
+
   let approved = false;
   let bottomButtonText;
 
@@ -339,6 +344,7 @@ const Display = ({view, connected, balance}) => {
 
   return (
     <>
+      <Logo>Paladin</Logo>
       <MainContainer />
       <PoolName>palUNI Pool</PoolName>
       <TopSubContainer />
@@ -346,11 +352,10 @@ const Display = ({view, connected, balance}) => {
         <TokenName>UNI</TokenName>
         <TokenChangeIcon>&#62;</TokenChangeIcon>
       </TokenButton>
-      <TokenImage />
       <MaxBox />
       <MaxText>MAX</MaxText>
       <BalanceAmount>Balance: {balance}</BalanceAmount>
-      <DepositAndWithdrawAmount />
+      <DepositAndWithdrawAmount type="text" placeholder="0.0"/>
       <BottomSubContainer />
       <StatsNames>
         { view ? 

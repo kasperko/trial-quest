@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
 import styled from 'styled-components';
-import { ethers } from 'ethers';
 
 const ConnectWalletButton = styled.button`
   display: flex;
@@ -19,6 +17,10 @@ const ConnectWalletButton = styled.button`
 
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.016);
   border-radius: 10px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const ConnectWalletButtonText = styled.p`
@@ -65,7 +67,7 @@ const AddressButton = styled.div`
 
 const AddressButtonText = styled.p`
   position: static;
-  width: 125px;
+  width: 100px;
   height: 24px;
   left: 53px;
   top: 8px;
@@ -84,6 +86,10 @@ const AddressButtonText = styled.p`
   order: 1;
   flex-grow: 0;
   margin: 0px 8px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const ETHBalanceButton = styled.div`
@@ -103,7 +109,7 @@ const ETHBalanceButtonText = styled.p`
   width: 68px;
   height: 26px;
   left: 1122px;
-  top: 31px;
+  top: 18px;
 
   font-family: IBM Plex Mono;
   font-style: normal;

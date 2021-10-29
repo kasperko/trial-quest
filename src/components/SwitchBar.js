@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
 import styled from 'styled-components';
-import Display from './Display';
 
-const MainSwitchBar = styled.button`
+const MainSwitchBar = styled.div`
   position: absolute;
   width: 264px;
   height: 59px;
@@ -50,7 +48,7 @@ const PoolButtonText = styled.button`
   position: absolute;
   width: 100px;
   height: 26px;
-  left: 500px;
+  left: 490px;
   top: 190px;
 
   font-family: IBM Plex Mono;
@@ -58,15 +56,18 @@ const PoolButtonText = styled.button`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+  color: white;
 
   text-align: center;
+  background-color: black;
+  border-radius: 10px;
 `;
 
 const DashboardButtonText = styled.button`
   position: absolute;
   width: 100px;
   height: 26px;
-  left: 600px;
+  left: 610px;
   top: 190px;
 
   font-family: IBM Plex Mono;
@@ -74,8 +75,11 @@ const DashboardButtonText = styled.button`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+  color: white;
 
   text-align: center;
+  background-color: black;
+  border-radius: 10px;
 `;
 
 const SwitchBar = ({view, onViewChangeClick}) => {

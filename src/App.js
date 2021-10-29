@@ -80,6 +80,7 @@ function App() {
 
   return (
     <div className="App">
+			<div id="logo"><img src="./paladinlogo.png" alt="" /></div>  
       <Wallet defaultAccount={defaultAccount} connectWalletHandler={connectWalletHandler} connectionButtonText={connectionButtonText} userBalance={userBalance} errorMessage={errorMessage} />
       <SwitchBar view={view} onViewChangeClick={changeView} />
       <Display view={view} connected={connected} balance={uniBalance} />

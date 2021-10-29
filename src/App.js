@@ -49,7 +49,7 @@ function App() {
 			.then(result => {
         changeConnected();
 				accountChangedHandler(result[0]);
-				setConnectionButtonText(result[0]);
+				setConnectionButtonText(result[0].substr(0,6) + '...' + result[0].substr(result[0].length - 4));
 				getAccountBalance(result[0]);
 			})
 			.catch(error => {
@@ -80,10 +80,9 @@ function App() {
 
   return (
     <div className="App">
-			<div id="logo"><img src="./paladinlogo.png" alt="" /></div>  
       <Wallet defaultAccount={defaultAccount} connectWalletHandler={connectWalletHandler} connectionButtonText={connectionButtonText} userBalance={userBalance} errorMessage={errorMessage} />
       <SwitchBar view={view} onViewChangeClick={changeView} />
-      <Display view={view} connected={connected} balance={uniBalance} />
+      <Display view={view} connected={connected} balance={uniBalance} connectWalletHandler={connectWalletHandler} />
     </div>
   );
 }

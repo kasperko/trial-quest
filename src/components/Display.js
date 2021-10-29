@@ -298,7 +298,7 @@ const DashboardStatsNames = () => {
 const UnconnectedStatsNumbers = () => {
   return (
     <>
-      <li>-</li>
+      <li>&nbsp;</li>
       <li>-</li>
       <li>-</li>
       <li>-</li>
@@ -312,15 +312,27 @@ const Logo = styled.h1`
   text-align: left;
 `;
 
-const Display = ({view, connected, balance}) => {
-  const ConnectedStatsNumbers = () => {
+const Display = ({view, connected, balance, connectWalletHandler}) => {
+  const ConnectedPoolStatsNumbers = () => {
     return (
       <>
-        <li>-</li>
+        <li>&nbsp;</li>
         <li>{}k UNI / ${}M</li>
         <li>{}k UNI / ${}M</li>
         <li>-</li>
         <li>{} days</li>
+      </>
+    );
+  }
+
+  const ConnectedDashboardStatsNumber = () => {
+    return (
+      <>
+        <li>&nbsp;</li>
+        <li>{} palUNI / ${}</li>
+        <li>1 palUni = 1.4 UNI</li>
+        <li>{}%</li>
+        <li>{}%</li>
       </>
     );
   }
@@ -330,6 +342,7 @@ const Display = ({view, connected, balance}) => {
 
   const handleBottomButtonText = () => {
     if (bottomButtonText === 'APPROVE') bottomButtonText = 'DEPOSIT';
+    if (bottomButtonText === 'CONNECT TO A WALLET') connectWalletHandler();
   }
 
   if (connected && !view) {
@@ -346,7 +359,7 @@ const Display = ({view, connected, balance}) => {
     <>
       <Logo>Paladin</Logo>
       <MainContainer />
-      <PoolName>palUNI Pool</PoolName>
+      <PoolName>{ view ? 'palUNI Pool' : 'Dashboard' }</PoolName>
       <TopSubContainer />
       <TokenButton>
         <TokenName>UNI</TokenName>
@@ -364,7 +377,7 @@ const Display = ({view, connected, balance}) => {
         }        
       </StatsNames>
       <StatsNumbers>
-        { connected ? <ConnectedStatsNumbers /> : <UnconnectedStatsNumbers /> }
+        { connected && view ? <ConnectedPoolStatsNumbers /> : connected && !view ? <ConnectedDashboardStatsNumber /> : <UnconnectedStatsNumbers /> }
       </StatsNumbers>
       <BottomButton onClick={handleBottomButtonText}>
         <BottomButtonText>{bottomButtonText}</BottomButtonText>

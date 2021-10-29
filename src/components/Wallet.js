@@ -17,10 +17,6 @@ const ConnectWalletButton = styled.button`
 
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.016);
   border-radius: 10px;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 const ConnectWalletButtonText = styled.p`
@@ -86,10 +82,6 @@ const AddressButtonText = styled.p`
   order: 1;
   flex-grow: 0;
   margin: 0px 8px;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 const ETHBalanceButton = styled.div`
